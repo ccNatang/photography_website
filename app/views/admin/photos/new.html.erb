@@ -1,0 +1,36 @@
+<h1>Add New Photo to <%= @gallery.title %> </h1>
+
+<%= form_with(model: [:admin, @gallery, @photo], multipart: true) do |form| %>
+<% if @photo.errors.any? %>
+  <div style="color: red">
+    <h2><%= pluralize(@photo.errors.count, "error") %> prohibited this photo from being saved:</h2>
+    <ul>
+      <% @photo.errors.each do |error| %>
+        <li><%= error.full_message %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<div clas="field">
+  <%= form.label :title%><br>
+  <%= form.text_field :title %>
+</div>
+
+<div class="field">
+  <%= form.label :description%><br>
+  <%= form.text_area :description %>
+</div>
+
+<div class="field">
+  <%= form.label :image %><br>
+  <%= form.file_field :image %>
+</div>
+
+<div class="actions">
+  <%= form.submit "Add Photo" %>
+</div>
+<% end %>
+
+<hr>
+<%= link_to "Back to galleries", admin_galleries_path %>
