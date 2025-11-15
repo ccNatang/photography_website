@@ -1,0 +1,38 @@
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+
+  <h1 class="text-4xl font-bold text-gray-900 mb-8">
+    All Galleries
+  </h1>
+
+  <% if @galleries.any? %>
+    <%# Main grid for galleries %>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      
+      <% @galleries.each do |gallery| %>
+        <%# Card component %>
+        <%= link_to gallery, class: "block rounded-lg shadow-md hover:shadow-xl transition-all overflow-hidden" do %>
+          <div class="bg-white">
+            <%# Placeholder if a gallery has no photos. For now, just a gray box. %>
+            <div class="h-48 bg-gray-200">
+              <%# 
+                The *first* photo of the gallery here.
+                if gallery.photos.any?
+                  image_tag gallery.photos.first.image.variant(resize_to_fill: [400, 300])
+                end
+              %>
+            </div>
+
+            <div class="p-6">
+              <h2 class="text-2xl font-semibold text-gray-800"><%= gallery.title %></h2>
+              <p class="text-gray-600 mt-2"><%= gallery.description %></p>
+            </div>
+          </div>
+        <% end %>
+      <% end %>
+
+    </div>
+  <% else %>
+    <p class="text-gray-500">No galleries have been created yet.</p>
+  <% end %>
+
+</div>
