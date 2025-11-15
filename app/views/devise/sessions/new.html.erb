@@ -1,0 +1,26 @@
+<div class="form-wrapper">
+  <div class="form-card">
+    <h2 class="text-2xl font-bold text-center text-gray-800 mb-6">Admin Login</h2>
+    <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+      <%# Passing in partial %>
+      <%= render "shared/form_field", f: f, field: :email %>
+
+      <%= render "shared/form_field", f: f, field: :password %>
+
+      <% if devise_mapping.rememberable? %>
+        <div class="mb-4 flex items-center">
+          <%= f.check_box :remember_me, class: "form-checkbox" %>
+          <%= f.label :remember_me, class: "form-checkbox-label" %>
+        </div>
+      <% end %>
+
+      <div class="actions">
+        <%= f.submit "Log in", class: "form-submit" %>
+      </div>
+    <% end %>
+
+    <div class="text-sm text-center mt-6">
+      <%= render "devise/shared/links" %>
+    </div>
+  </div>
+</div>
