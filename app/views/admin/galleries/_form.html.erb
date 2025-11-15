@@ -11,11 +11,10 @@
 
 <%= form_with(model: @gallery, url: form_url, method: form_method, local: true) do |form| %>
 
-  <%# This will display validation errors, if any %>
   <% if @gallery.errors.any? %>
-    <div style="color: red">
-      <h2><%= pluralize(@gallery.errors.count, "error") %> prohibited this gallery from being saved:</h2>
-      <ul>
+    <div class="mb-4 p-4 bg-red-100 text-red-700 rounded-lg">
+      <h2 class="font-bold"><%= pluralize(@gallery.errors.count, "error") %> prohibited this gallery from being saved:</h2>
+      <ul class="list-disc list-inside">
         <% @gallery.errors.each do |error| %>
           <li><%= error.full_message %></li>
         <% end %>
@@ -23,18 +22,18 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :title %><br>
-    <%= form.text_field :title %>
+  <div class="mb-4">
+    <%= form.label :title, class: "form-label" %><br>
+    <%= form.text_field :title, class: "form-input" %>
   </div>
 
-  <div class="field">
-    <%= form.label :description %><br>
-    <%= form.text_area :description %>
+  <div class="mb-4">
+    <%= form.label :description, class: "form-label" %><br>
+    <%= form.text_area :description, class: "form-input" %>
   </div>
 
-  <div class="actions">
-    <%= form.submit %>
+  <div class="actions mt-6">
+    <%= form.submit "Save Gallery", class: "form-submit" %>
   </div>
 
-<% end %> <%# This one 'end' correctly closes the form_with block %>
+<% end %> 

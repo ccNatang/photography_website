@@ -1,20 +1,24 @@
-<h1>Manage Galleries</h1>
-
-<%= link_to "Create New Gallery", new_admin_gallery_path, class: "button" %>
-
-<hr>
-
-<div class="admin-gallery-list">
-  <% @galleries.each do |gallery| %>
-  <div class ="admin-gallery-ite">
-    <h3><%= gallery.title %></h3>
-    <p><% gallery.description %></p>
-
-    <div class="actions">
-      <%= link_to "Add Photos", new_admin_gallery_photo_path(gallery) %> |
-      <%= link_to "Edit", edit_admin_gallery_path(gallery) %> |
-      <%= link_to "Delete", admin_gallery_path(gallery), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
+<div class="w-full">
+  <div class="form-card">
+    <div class="flex justify-between items-center mb-6">
+      <h1 class="text-2xl font-bold text-gray-800">Manage Galleries</h1>
+      <%= link_to "Create New Gallery", new_admin_gallery_path, class: "form-submit w-auto" %>
+    </div>
+    <div class="admin-gallery-list space-y-4">
+      <% @galleries.each do |gallery| %>
+        <div class="admin-gallery-item flex justify-between items-center p-4 border rounded-lg">
+          <div>
+            <h3 class="font-semibold text-lg text-lg"><%= gallery.title %></h3>
+            <p class="text-sm text-gray-600"><%= gallery.description %></p>
+          </div>
+          <div class="actions flex space-x-4">
+            <%= link_to "Edit", edit_admin_gallery_path(gallery), class: "text-blue-600 hover:text-blue-800 font-medium" %>
+            <%= link_to "Delete", admin_gallery_path(gallery),
+              class: "text-red-600 hover:text-red-800 font-medium",
+              data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
+          </div>
+        </div>
+        <% end %>
     </div>
   </div>
-  <% end %>
-</div>
+</div>>
