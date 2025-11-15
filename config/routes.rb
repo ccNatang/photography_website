@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  devise_for :admins
+  get "pages/home"
+  get "galleries/index"
+  get "galleries/show"
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
@@ -11,4 +15,14 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "posts#index"
+  root "pages#home"
+  resources :galleries, only: [ :index, :show ]
+
+  namespace :admin do
+    root "galleries#index"
+
+    resources :galleries, except: :show do
+      resources :photos, only: [ :new, :create, :destroy ]
+    end
+  end
 end
