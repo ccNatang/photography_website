@@ -1,0 +1,40 @@
+
+<%
+  if @gallery.persisted?
+    form_url = admin_gallery_path(@gallery)
+    form_method = :patch
+  else
+    form_url = admin_galleries_path
+    form_method = :post
+  end
+%>
+
+<%= form_with(model: @gallery, url: form_url, method: form_method, local: true) do |form| %>
+
+  <%# This will display validation errors, if any %>
+  <% if @gallery.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(@gallery.errors.count, "error") %> prohibited this gallery from being saved:</h2>
+      <ul>
+        <% @gallery.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :title %><br>
+    <%= form.text_field :title %>
+  </div>
+
+  <div class="field">
+    <%= form.label :description %><br>
+    <%= form.text_area :description %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+
+<% end %> <%# This one 'end' correctly closes the form_with block %>
