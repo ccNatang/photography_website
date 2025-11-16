@@ -14,12 +14,11 @@
           <div class="bg-white">
             <%# Placeholder if a gallery has no photos. For now, just a gray box. %>
             <div class="h-48 bg-gray-200">
-              <%# 
-                The *first* photo of the gallery here.
-                if gallery.photos.any?
-                  image_tag gallery.photos.first.image.variant(resize_to_fill: [400, 300])
-                end
-              %>
+                <% if gallery.photos.any? && gallery.photos.first.image.attached? %>
+                  <%= image_tag gallery.photos.first.image.variant(resize_to_fill: [400, 300]), class: "h-48 w-full object-cover" %>
+                <% else %>
+                  <div class="h-48 bg-gray-200"></div>
+                <% end %>
             </div>
 
             <div class="p-6">
