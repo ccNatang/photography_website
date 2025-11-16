@@ -16,10 +16,11 @@
         <%= link_to "Add New Photo", new_admin_gallery_photo_path(@gallery), class: "form-submit w-auto" %>
       </div>
 
-      <div class="admin-photo-list grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+      <div class="admin-photo-list grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 place-items-start">
         <% @photos.each do |photo| %>
-          <div class="admin-photo-item relative group">
+          <div class="admin-photo-item group">
             <% if photo.image.attached? %>
+            <div class="relative inline-block">
               <%= image_tag photo.image.variant(resize_to_fill: [200, 200]), class: "rounded-lg" %>
               
               <div class="absolute top-1 right-1 opacity-0 group-hover:opacity-100 transition-opacity">
@@ -31,6 +32,7 @@
                         turbo_confirm: "Are you sure?" 
                       } %>
               </div>
+            </div>
             <% end %>
             
             <p class="text-xs text-center mt-1 truncate"><%= photo.title %></p>
