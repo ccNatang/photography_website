@@ -19,10 +19,4 @@
   .form-wrapper {
     @apply max-w-md mx-auto;
   }
-  .hero-background {
-    background-image: url("background-Matt.png");
-    background-size: cover;
-    background-position: top;
-    background-repeat: no-repeat;
-  }
 }
