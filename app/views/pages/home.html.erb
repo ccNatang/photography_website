@@ -1,12 +1,14 @@
-<div class="relative w-full min-h-[calc(100vh-64px)] flex items-center justify-center text-center text-white after:content-[''] after:absolute after:inset-0 after:bg-black after:bg-opacity-40 after:z-0">
+<div class="relative w-full min-h-[calc(100vh-64px)] flex items-center justify-center text-center text-white 
+            bg-cover bg-center" 
+            style="background-image: url('<%= image_url('background-Matt.png') %>');">
 
-  <div class="relative z-10 py-20 px-4"> 
+  <div class="relative z-10 py-20 px-4">
 
-    <h1 class="text-5xl font-extrabold mb-4 drop-shadow-lg">
+    <h1 class="text-5xl font-extrabold mb-4 drop-shadow-lg text-blue-glow">
       Welcome to Matt's Photography
     </h1>
 
-    <p class="text-xl mb-8 max-w-3xl mx-auto leading-relaxed drop-shadow">
+    <p class="text-xl mb-8 max-w-3xl mx-auto leading-relaxed drop-shadow text-blue-glow">
       My passion for photography began in childhood, sparked by the joy of taking pictures and the creative challenge of finding the perfect composition. This early fascination has evolved into a professional dedication to crafting compelling, beautifully balanced images.
     </p>
 
@@ -20,7 +22,7 @@
 
 <div class="bg-white py-12">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <h2 class="text-2xl front-bold text-center text-gray-800 mb-8">Featured Photos</h2>
+    <h2 class="text-2xl front-bold text-center text-gray-800 mb-8 text-blue-glow">Featured Photos</h2>
 
     <div class="grid grid-cols-3 md:grid-cols-3 gap-4 lg:gap-8">
       <% @featured_photos.each do |photo| %>
@@ -28,7 +30,6 @@
         <div class="block rounded-lg overflow-hidden aspect-square bg-gray-100">
           <%= image_tag photo.image.variant(resize_to_fill: [400, 400]), class: "w-full h-full object-cover" %>
         </div>
-    </div>
       <% end %>
       <% end %>
   </div>
