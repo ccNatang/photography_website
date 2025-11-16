@@ -1,2 +1,19 @@
-<h1 class="text-4xl font-bold text-blue-600 p-8">Welcome to my Photography Site!</h1>
-<p class="mt-4 p-8">Tailwind is working!</p>
+<div class="relative w-full min-h-[calc(100vh-64px)] flex items-center justify-center text-center text-white hero-background after:content-[''] after:absolute after:inset-0 after:bg-black after:bg-opacity-40 after:z-0">
+
+  <div class="relative z-10 py-20 px-4"> 
+
+    <h1 class="text-5xl font-extrabold mb-4 drop-shadow-lg">
+      Welcome to Matt's Photography
+    </h1>
+
+    <p class="text-xl mb-8 max-w-3xl mx-auto leading-relaxed drop-shadow">
+      My passion for photography began in childhood, sparked by the joy of taking pictures and the creative challenge of finding the perfect composition. This early fascination has evolved into a professional dedication to crafting compelling, beautifully balanced images.
+    </p>
+
+    <%= link_to "View Galleries", 
+          galleries_path, 
+          class: "inline-block rounded-md bg-blue-600 px-8 py-4 text-lg font-semibold text-white shadow-lg hover:bg-blue-700 transition-colors" 
+    %>
+
+  </div>
+</div>
