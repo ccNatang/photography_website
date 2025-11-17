@@ -23,8 +23,9 @@
           <div class="flex items-center space-x-6">
             <%# Public Links %>
             <%= link_to "Home", root_path, class: "text-gray-600 hover:text-blue-600 transition-colors" %>
+            <%= link_to "About", pages_about_path, class: "text-gray-600 hover:text-blue-600 transition-colors" %>
             <%= link_to "Galleries", galleries_path, class: "text-gray-600 hover:text-blue-600 transition-colors" %>
-
+            
             <%# --- Smart Links (admin) --- %>
             <% if admin_signed_in? %>
               <%# Link to the admin dashboard %>
