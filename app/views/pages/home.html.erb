@@ -1,15 +1,15 @@
 <div class="relative w-full min-h-[calc(100vh-64px)] flex items-center justify-center text-center text-white 
-            bg-cover bg-center" 
+            bg-cover bg-center bg-fixed glass-card" 
             style="background-image: url('<%= image_url('background-Matt.png') %>');">
-  <div class="relative z-10 py-20 px-4 glass-card">
+  <div class="relative z-10 py-20 px-4 max-w-7xl mx-auto">
 
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <h2 class="text-2xl front-bold text-center text-gray-800 mb-8 text-blue-glow">Featured Photos</h2>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 transparent">
+      <h2 class="text-4xl font-bold text-center text-white mb-8 text-blue-glow">Featured Photos</h2>
 
       <div class="grid grid-cols-3 md:grid-cols-3 gap-4 lg:gap-8 transparent">
         <% @featured_photos.each do |photo| %>
         <% if photo.image.attached? %>
-          <div class="block rounded-lg overflow-hidden aspect-square">
+          <div class="block rounded-lg overflow-hidden aspect-square border-2 border-white/30 shadow-2xl">
             <%= image_tag photo.image.variant(resize_to_fill: [400, 400]), class: "w-full h-full object-cover" %>
           </div>
         <% end %>
