@@ -46,7 +46,7 @@
         </div>
       </nav>
     </header>
-    <main class="pt-16 bg-gray-100 min-h-screen">
+    <main class="pt-16 <%= 'bg-gray-100' unless controller_name == 'pages' && action_name == 'home' %> min-h-screen">
       <%= yield %>
     </main>
   </body>

@@ -12,7 +12,6 @@
         <%# Card component %>
         <%= link_to gallery, class: "block rounded-lg shadow-md hover:shadow-xl transition-all overflow-hidden relative h-72" do %>
           
-            <%# Placeholder if a gallery has no photos. For now, just a gray box. %>
             <div class="absolute inset-0">
                 <% if gallery.photos.any? && gallery.photos.first.image.attached? %>
                   <%= image_tag gallery.photos.first.image.variant(resize_to_fill: [400, 300]), class: "h-full w-full object-cover" %>
