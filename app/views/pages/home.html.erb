@@ -5,10 +5,10 @@
   <div class="absolute inset-0 glass-card"></div>
   <div class="relative z-10 py-20 px-4 max-w-7xl mx-auto">
 
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 transparent">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <h2 class="text-4xl font-bold text-center text-white mb-8 text-blue-glow">Featured Photos</h2>
 
-      <div class="grid grid-cols-3 md:grid-cols-3 gap-4 lg:gap-8 transparent">
+      <div class="grid grid-cols-3 md:grid-cols-3 gap-4 lg:gap-8">
         <% @featured_photos.each do |photo| %>
         <% if photo.image.attached? %>
           <div class="block rounded-lg overflow-hidden aspect-square border-2 border-white/30 shadow-2xl">

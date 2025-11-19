@@ -10,11 +10,11 @@
       <% if devise_mapping.rememberable? %>
         <div class="mb-4 flex items-center">
           <%= f.check_box :remember_me, class: "form-checkbox" %>
-          <%= f.label :remember_me, class: "form-checkbox-label" %>
+          <%= f.label :remember_me %>
         </div>
       <% end %>
 
-      <div class="actions">
+      <div>
         <%= f.submit "Log in", class: "form-submit" %>
       </div>
     <% end %>
