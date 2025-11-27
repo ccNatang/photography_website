@@ -2,6 +2,8 @@
   "name": "photography_website",
   "private": true,
   "dependencies": {
+    "@hotwired/stimulus": "^3.2.2",
+    "@hotwired/turbo-rails": "^8.0.20",
     "esbuild": "^0.25.0",
     "react": "^19.2.0",
     "react-dom": "^19.2.0"
